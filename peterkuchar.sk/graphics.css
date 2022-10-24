@@ -1,0 +1,288 @@
+/* CSS Variables */
+
+:root {
+    --primary: #1b2a41;
+    --dark: #161c28;
+    --light: #6ec1e4;
+    --orange: orange;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+
+
+/* BASICS */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--primary);
+    font-family: Outfit, Helvetica, Arial;
+    line-height: 1.4;    
+    display: grid;
+    margin: 0 auto;
+}
+
+@font-face {
+    font-family: Outfit, Helvetica, Arial;
+    src: url(./photography/Outfit/Outfit-VariableFont_wght.ttf);
+}
+
+a {
+    text-decoration: none;    
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+    
+}
+
+strong {
+    color: var(--orange);
+}
+
+h3 {
+    color: var(--light);
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+
+
+/* NAVIGATION */
+
+.navbar {
+    width: 100%;
+    background-color: var(--dark);
+    border-bottom: solid 3px var(--light);
+    height: 4rem;
+    position: fixed;
+    z-index: 9999;
+}
+
+.navbar .nav-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    height: 100%;
+    padding: 0 30px;
+}
+
+.social {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: center;
+    justify-self: end;
+    height: 100%;
+}
+
+.social img {
+    width: 25px;
+}
+
+.fa-facebook, .fa-youtube, .fa-google {
+    background: var(--dark);
+    color: var(--light);
+}
+
+.menu {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: start;
+    gap: 50px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: var(--light);
+}
+
+.navbar .graphics {
+    color: var(--light);
+}
+
+
+
+/* LOGO */
+
+.logotype {    
+    margin-top: 50px;
+    display: grid;
+    background-image: url(./img/IMG_4493.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;    
+    gap: 10px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    align-items: center;
+    justify-self: center;
+    margin-bottom: 1rem;
+    padding-bottom: 2rem;
+    border-radius: 0 0 2rem 2rem;
+    box-shadow: 0 0px 25px black;    
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+.logo {    
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.logo a {
+    width: 50%;    
+}
+
+.logo img {    
+    height: auto;
+    width: 40%;
+    margin: 0;
+    padding: 0;    
+}
+
+.type {
+    font-size: 3rem;    
+    color: white;
+    margin: 0px;
+    text-shadow: var(--shadow);
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* GALLERY */
+
+.title {
+    font-size: xx-large;
+    color: var(--light);
+    text-align: center;
+}
+
+.gallery {
+    width: 100%;    
+    text-align: center;
+}
+
+.gallery img {
+    width: 80%;    
+    margin: 1rem;
+}
+
+.gallery iframe {
+    width: 80%;
+    height: 100vh;
+    margin: .5rem 0;
+}
+
+.gallery div {
+    margin-bottom: 3rem;
+}
+
+
+
+/* MEDIA QUERIES */
+
+@media(max-width: 1000px) {
+    .about {
+        grid-template-columns: 1fr;
+    }    
+
+    .profpic {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .text {
+        font-size: 1rem;
+    }
+
+    .music {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .type h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .logotype {
+        grid-template-columns: 1fr;        
+        margin-bottom: 0px;
+        justify-items: center;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .type {
+        text-align: center;
+    }
+
+    .mywork {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar a {
+        font-size: small;        
+    }
+
+    .navbar .container {
+        grid-template-columns: repeat(2, 1fr);
+        justify-self: center;
+    }
+
+    .menu {        
+        gap: 20px;
+    }
+
+    .social img {
+        width: 20px;
+    }
+
+    .social {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .gallery {
+        margin-top: 2rem;
+    }
+
+    .gallery iframe {
+        width: 80%;
+        height: 666px;
+    }
+}

@@ -1,0 +1,3 @@
+modra: #1b2a41
+tyrkis: #6ec1e4
+tmava: #161c28

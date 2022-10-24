@@ -1,0 +1,51 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    text-align: left;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2a3041;
+    overflow: hidden;
+}
+
+.container {
+    display: inline-flex;
+    width: 280px;    
+}
+
+.text-box h1 {
+    color: #fff;
+}
+
+.text-box span {
+    color: yellow;
+    position: relative;
+}
+
+span::after {
+    content: "";
+    position: absolute; right: -5px;
+    width: 1px;
+    height: 100%;
+    border-right: 2px solid yellow;
+    
+    animation: blink .5s infinite ease;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

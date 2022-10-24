@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+
+    <body style="width: 100vw; height: 100vh; display: flex; align-items:center; justify-content: center; background-color: #333;">
+
+
+
+
+        <h1 id="hours" style="font-family: Arial; font-size: 5rem; color: #fff;"></h1>
+        
+            <h1 style="font-family: Arial; font-size: 5rem; color: #fff;">:</h1>
+        
+        <h1 id="minutes" style="font-family: Arial; font-size: 5rem; color: #fff;"></h1>
+
+        <h1 style="font-family: Arial; font-size: 5rem; color: #fff;">:</h1>
+        
+        <h1 id="seconds" style="font-family: Arial; font-size: 5rem; color: #fff;"></h1>
+
+
+
+
+        <script>
+
+            var seconds = 0;
+            var minutes = 0;
+            var hours = 0;
+
+            setInterval(displaySeconds, 1000);
+            setInterval(displayMinutes, 60000);
+            setInterval(displayHours, 3600000);
+
+            function displaySeconds() {
+                    seconds++;
+                    document.getElementById("seconds").innerText = seconds;
+                        
+                        if ( seconds < 10 ) {
+                            seconds = "0" + seconds;                
+                        }
+                        
+                        if ( seconds == 60 ) {
+                            seconds = 0;                            
+                        }
+            }
+
+            function displayMinutes() {
+                    minutes++
+                    document.getElementById("minutes").innerText = minutes;
+                    
+                    if ( minutes < 10 ) {
+                            minutes = "0" + minutes;                
+                        }
+                        
+                        if ( minutes == 60 ) {
+                            minutes = 0;                            
+                        }
+            }
+
+            function displayHours() {
+                    hours++;
+                    document.getElementById("hours").innerText = hours;
+                    if ( hours < 10 ) {
+                            hours = "0" + hours;
+                        }
+            }
+
+            displaySeconds();
+            displayMinutes();
+            displayHours();
+
+        </script>
+    
+    </body>
+
+</html>

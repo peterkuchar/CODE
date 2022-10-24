@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "js_01/js_01"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "learn2code"
+	}
+}
