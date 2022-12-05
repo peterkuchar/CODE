@@ -471,21 +471,35 @@ h1 {
 .html {
     display: block;
     background-color: var(--light);    
-    width: 60%;
+    width: 75%;
     padding: .5em;
 }
 
 .css {
     display: block;
     background-color: var(--light);
-    width: 50%;
+    width: 75%;
     padding: .5em;
 }
 
 .js {
     display: block;
     background-color: var(--light);
-    width: 5%;
+    width: 25%;
+    padding: .5em;
+}
+
+.py {
+    display: block;
+    background-color: var(--light);
+    width: 25%;
+    padding: .5em;
+}
+
+.php {
+    display: block;
+    background-color: var(--light);
+    width: 10%;
     padding: .5em;
 }
 
