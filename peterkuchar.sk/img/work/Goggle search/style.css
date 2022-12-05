@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'Google';
+    src: url('/product-sans/Product Sans Regular.ttf');
+}
+
+:root {
+    --background: #202124;
+    --button: #303134;
+    --white: #ffffff;
+    --line: #5f6368;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Google', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.container {      
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .logo {
+    color: var(--white);
+    font-size: 3rem;    
+    margin-bottom: 2rem;
+}
+
+.container .searchBox {
+    width: 100%;
+    position: relative;
+}
+
+.container .searchBox input {
+    width: 700px;
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 25px;
+    padding: 1rem;
+    outline: none;
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    padding-left: 3.5rem;
+    padding-right: 2rem;
+}
+
+.container .searchBox .icon {
+    position: absolute;
+    top: 8px; left: 10px;
+    pointer-events: none;
+}
+
+.container .searchBox .icon img {
+    scale: .6;
+}
+
+.searchBtn {
+    background-color: var(--button);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: .7rem 1.4rem;
+    color: var(--white);
+    border: 1px solid transparent;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.searchBtn:hover {
+    border: 1px solid var(--line);
+}
+
+@media(max-width: 1000px) {
+    body {
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .container .logo {
+        font-size: 2rem;
+    }
+
+    .container .searchBox input {
+        width: 100%;
+    }
+}
