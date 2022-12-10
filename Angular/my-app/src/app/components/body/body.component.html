@@ -1,5 +1,46 @@
-<div id="bodyInput">
-    <input id="input" type="text" placeholder="Type something here">
+<form [formGroup]="newTaskForm" (ngSubmit)="addTask()" id="bodyInput">
+    <input formControlName="taskText" id="inputText" type="text" value="" placeholder="Add task here">
+    <input formControlName="taskDate" id="inputDate" type="date">
+    <input formControlName="taskTime" id="inputTime" type="time" name="">
 
-    <button id="add" onclick="add()">{{ button }}</button>
+    <button id="add" onclick="addTask()" (ngSubmit)="addTask()" type="submit">{{ button }}</button>
+</form>
+
+<div id="bodyOutput">
+
+    <table>
+        <td>
+            Appointment
+        </td>
+        <td>
+            11/12/2022
+        </td>
+        <td>
+            08:00 AM
+        </td>
+        <td>
+            <button type="submit">X</button>
+        </td>
+    </table>
+
+    <div *ngFor="let value of taskList">
+        <p>{{value.name}}</p>
+    </div>
+    <!-- <table>
+        <td *ngfor="let task of tasks">
+            {{ task }}
+        </td>
+        <td *ngfor="let date of dates">
+            {{ date }}
+        </td>
+        <td *ngfor="let time of times">
+            {{ time }}
+        </td>
+        <td>
+            <button type="submit">X</button>
+        </td>
+    </table> -->
+
 </div>
+
+
