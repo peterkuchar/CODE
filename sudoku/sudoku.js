@@ -31,7 +31,7 @@ function getValue() {
     parseInt(document.querySelectorAll(".h")[0].value|0),
     parseInt(document.querySelectorAll(".i")[0].value|0)
   ];
-
+ 
   const input_2 = [
     parseInt(document.querySelectorAll(".a")[1].value|0),
     parseInt(document.querySelectorAll(".b")[1].value|0),
@@ -128,6 +128,29 @@ function getValue() {
     parseInt(document.querySelectorAll(".i")[8].value|0)
   ];
 
+  const a1 = localStorage.setItem(document.getElementById("a1").value, input_1[0]);
+  const a2 = localStorage.setItem(document.getElementById("a2").value, input_1[1]);
+  const a3 = localStorage.setItem(document.getElementById("a3").value, input_1[2]);
+  const a4 = localStorage.setItem(document.getElementById("a4").value, input_1[3]);
+  const a5 = localStorage.setItem(document.getElementById("a5").value, input_1[4]);
+  const a6 = localStorage.setItem(document.getElementById("a6").value, input_1[5]);
+  const a7 = localStorage.setItem(document.getElementById("a7").value, input_1[6]);
+  const a8 = localStorage.setItem(document.getElementById("a8").value, input_1[7]);
+  const a9 = localStorage.setItem(document.getElementById("a9").value, input_1[8]);
+  
+  const b1 = localStorage.setItem(document.getElementById("b1").value, input_2[0]);
+  const b2 = localStorage.setItem(document.getElementById("b2").value, input_2[1]);
+  const b3 = localStorage.setItem(document.getElementById("b3").value, input_2[2]);
+  const b4 = localStorage.setItem(document.getElementById("b4").value, input_2[3]);
+  const b5 = localStorage.setItem(document.getElementById("b5").value, input_2[4]);
+  const b6 = localStorage.setItem(document.getElementById("b6").value, input_2[5]);
+  const b7 = localStorage.setItem(document.getElementById("b7").value, input_2[6]);
+  const b8 = localStorage.setItem(document.getElementById("b8").value, input_2[7]);
+  const b9 = localStorage.setItem(document.getElementById("b9").value, input_2[8]);
+
+ 
+
+
   // Sum values in array
   const sum_1 = input_1.reduce((x, y) => {
     return x + y;
@@ -183,19 +206,46 @@ function getValue() {
 
 var arr = getValue();
 
+function saveValue(e) {
+  var id = e.id;
+  var value = e.value;
+  localStorage.setItem(id, value);
+}
+
+function getSavedValue(v) {
+  if (!localStorage.getItem(v)) {
+    return "";
+  }
+  return localStorage.getItem(v)
+}
+
 // Check if an array contains duplicates
 
-function containsDuplicates(array) {
-  if (array.length !== new Set(array).size) {
-    return true;
-  }
+// function containsDuplicates(array) {
+//   if (array.length !== new Set(array).size) {
+//     return true;
+//   }
 
-  return false;
+//   return false;
+// }
+
+function updateHTML(){
+  document.getElementById("a1").setAttribute('value', a1.value);
+  document.getElementById("a2").setAttribute('value', a2.value);
+  document.getElementById("a3").setAttribute('value', a3.value);
+  document.getElementById("a4").setAttribute('value', a4.value);
+  document.getElementById("a5").setAttribute('value', a5.value);
+  document.getElementById("a6").setAttribute('value', a6.value);
+  document.getElementById("a7").setAttribute('value', a7.value);
+  document.getElementById("a8").setAttribute('value', a8.value);
+  document.getElementById("a9").setAttribute('value', a9.value);  
 }
 
 function doMagic() {
   validate();
   getValue();
-  containsDuplicates(arr);
+  console.log(a1.value);
+  console.log(b1.value);
+  updateHTML();
+  //containsDuplicates(arr);
 }
-
