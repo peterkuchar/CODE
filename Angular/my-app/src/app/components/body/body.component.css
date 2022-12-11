@@ -1,50 +1,41 @@
-#bodyInput {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-#inputDate {
-    width: 40%;
-}
-
-#inputTime {
-    width: 40%;
-}
-
-input {
-
-    width: 100%;
-    height: 3rem;
-    padding: 1.5rem 1rem;
-    font-size: 1.5rem;
- }
-
- #add {
-    height: 100%;
-    padding: .615rem 2rem;
-    font-size: 1.5rem;
- }
-
  #bodyOutput {
+    font-size: 1.25rem;
+    width: 90%;
+    margin: 0 auto;
     margin-top: 2rem;
-    font-size: 1.5rem;
  }
 
- #bodyOutput table {
-    border-spacing: 3rem 0;
+ .task {
+   padding: 5px;
+   text-align: left;
+   display: grid;
+   grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+   gap: 25px;
+   cursor: default;
  }
 
- #bodyOutput table td button {
-    background-color: red;
-    color: white;
-    padding: 5px;
-    border: 1px solid darkred;
-    border-radius: 5px;
+ .task button {
+   width: 20px;
+   height: 20px;
+   background-color: red;
+   color: white;
+   padding: 5px;
+   border: 1px solid darkred;
+   border-radius: 5px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
  }
 
- #bodyOutput table td button:hover,
- #bodyOutput table td button:active {
+ .task button:hover,
+ .task button:active {
     background-color: darkred;
+ }
+
+ .task:nth-child(even) {
+  background-color: rgb(214, 214, 214);
+ }
+
+ .task.done .content {
+  text-decoration: line-through;
  }

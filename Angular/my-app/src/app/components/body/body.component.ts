@@ -1,34 +1,59 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-
+import { Task } from '../../models/Task';
 
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
-export class BodyComponent {
 
-  button: string = 'Add';
+export class BodyComponent implements OnInit {
 
-  taskList: any[] = []
-  newTaskForm = this.formBuilder.group({
-    taskItem: '',
-    taskDate: '',
-    taskTime: ''
-  })
+  tasks!:Task[];
 
-  constructor(
-  private formBuilder: FormBuilder
-  ) {}
+  DateSelected: any;
+  TimeSelected: any;
+  inputTask: string = "";
 
-  addTask() {
-    const value = this.newTaskForm.value.taskItem
-    this.taskList.push({ id: this.taskList.length, name: value })
-    this.newTaskForm.reset();
+  constructor() { }
+
+  ngOnInit(): void {
+    this.tasks = [
+      {
+        content: 'first',
+        date: '24/12/2022',
+        time: '08:00 AM',
+        completed: false
+      },
+      {
+        content: 'second',
+        date: '24/12/2022',
+        time: '08:00 AM',
+        completed: false
+      },
+      {
+        content: 'third',
+        date: '24/12/2022',
+        time: '08:00 AM',
+        completed: false
+      },
+      {
+        content: 'fourth',
+        date: '24/12/2022',
+        time: '08:00 AM',
+        completed: false
+      }
+    ]
   }
 
+  toggleDone(id: number) {
+    this.tasks.map((v, i) => {
+      if (i == id) v.completed = !v.completed;
+      return v;
+    })
+  }
 
-  // task: string = document.getElementById('inputText');
-
+  deleteTask(id: number) {
+    this.tasks = this.tasks.filter((v, i) => i !== id);
+  }
 }

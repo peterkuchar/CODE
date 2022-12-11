@@ -1,0 +1,6 @@
+<form id="bodyInput">
+    <input id="inputText" type="text" name="inputTask" placeholder="Add task here" [(ngModel)]="inputTask"/>
+    <input id="inputDate" type="date" name="inputDate" [(ngModel)]="DateSelected"/>
+    <input id="inputTime" type="time" name="inputTime" [(ngModel)]="TimeSelected"/>
+    <input id="add" type="submit" value="Add" (click)="addTask()"/>
+</form>
