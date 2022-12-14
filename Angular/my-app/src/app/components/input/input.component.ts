@@ -9,14 +9,14 @@ import { Task } from './../../models/Task'
 
 export class InputComponent implements OnInit {
 
-  @Output() tasksChange = new EventEmitter<Task[]>();
+  @Output() tasksChange = new EventEmitter();
 
   @Input() task!: [];
 
   tasks:Task[] = [];
   inputTask: string = "";
-  DateSelected: any;
-  TimeSelected: any;
+  inputDate: any;
+  inputTime: any;
 
   constructor() {}
   ngOnInit(): void {}
@@ -24,17 +24,17 @@ export class InputComponent implements OnInit {
   addTask() {
     this.tasks.push({
       content: this.inputTask,
-      date: this.DateSelected,
-      time: this.TimeSelected,
+      date: this.inputDate,
+      time: this.inputTime,
       completed: false
     });
 
     console.log(this.tasks);
 
-    this.tasksChange.emit(this.tasks);
+    this.tasksChange.emit(this.task);
 
     this.inputTask = "";
-    this.DateSelected = "";
-    this.TimeSelected = "";
+    this.inputDate = "";
+    this.inputTime = "";
   }
 }

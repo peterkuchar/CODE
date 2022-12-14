@@ -1,4 +1,4 @@
-<app-input></app-input>
+<app-input (tasksChange)="addTask($event)"></app-input>
 
 <div class="bodyOutput">
     <div *ngFor="let task of tasks; let i = index;" class="task {{ (task.completed ? 'done' : '') }}">

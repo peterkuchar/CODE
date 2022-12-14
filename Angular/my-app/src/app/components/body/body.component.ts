@@ -55,4 +55,19 @@ export class BodyComponent implements OnInit {
   deleteTask(id: number) {
     this.tasks = this.tasks.filter((v, i) => i !== id);
   }
+
+  addTask(tasks: Task) {
+    this.tasks.push({
+      content: this.inputTask,
+      date: this.DateSelected,
+      time: this.TimeSelected,
+      completed: false
+    });
+
+    console.log(this.tasks);
+
+    this.inputTask = "";
+    this.DateSelected = "";
+    this.TimeSelected = "";
+  }
 }
