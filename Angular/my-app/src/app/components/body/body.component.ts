@@ -1,22 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Task } from '../../models/Task';
 
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
-  styleUrls: ['./body.component.css']
+  styleUrls: ['./body.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class BodyComponent implements OnInit {
 
   tasks:Task[] = [];
-  DateSelected: any;
-  TimeSelected: any;
-  inputTask: string = "";
+  @Output() public inputDate: any;
+  @Output() public inputTime: any;
+  @Output() public inputTask: string = "";
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
     this.tasks = [
       {
         content: 'First',
@@ -45,29 +44,33 @@ export class BodyComponent implements OnInit {
     ]
   }
 
+  ngOnInit(): void {
+
+  }
+
   toggleDone(id: number) {
     this.tasks.map((v, i) => {
-      if (i == id) v.completed = !v.completed;
+      if (i == id) v.completed = !v.completed;  // mark completed task with line-through style
       return v;
     })
   }
 
   deleteTask(id: number) {
-    this.tasks = this.tasks.filter((v, i) => i !== id);
+    this.tasks = this.tasks.filter((v, i) => i !== id); // delete task
   }
 
-  addTask(tasks: Task) {
+  addNewTask() {
     this.tasks.push({
       content: this.inputTask,
-      date: this.DateSelected,
-      time: this.TimeSelected,
+      date: this.inputDate,
+      time: this.inputTime,
       completed: false
     });
 
     console.log(this.tasks);
 
-    this.inputTask = "";
-    this.DateSelected = "";
-    this.TimeSelected = "";
+    this.inputTask = "";  // reset input text
+    this.inputDate = ""; // reset input date
+    this.inputTime = ""; // reset input time
   }
 }

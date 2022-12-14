@@ -1,27 +1,26 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Task } from './../../models/Task'
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.css']
+  styleUrls: ['./input.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class InputComponent implements OnInit {
 
   @Output() tasksChange = new EventEmitter();
 
-  @Input() task!: [];
-
   tasks:Task[] = [];
-  inputTask: string = "";
-  inputDate: any;
-  inputTime: any;
+  @Input() public inputTask: string = "";
+  @Input() public inputDate: any;
+  @Input() public inputTime: any;
 
   constructor() {}
   ngOnInit(): void {}
 
-  addTask() {
+  addNewTask() {
     this.tasks.push({
       content: this.inputTask,
       date: this.inputDate,
@@ -29,12 +28,10 @@ export class InputComponent implements OnInit {
       completed: false
     });
 
-    console.log(this.tasks);
+    this.tasksChange.emit(this.tasks);
 
-    this.tasksChange.emit(this.task);
-
-    this.inputTask = "";
-    this.inputDate = "";
-    this.inputTime = "";
+    this.inputTask = ""; //reset input text
+    this.inputDate = ""; //reset input date
+    this.inputTime = ""; // reset input time
   }
 }
