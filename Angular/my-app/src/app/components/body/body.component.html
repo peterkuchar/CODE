@@ -1,11 +1,11 @@
-<div id="bodyOutput">
+<app-input></app-input>
+
+<div class="bodyOutput">
     <div *ngFor="let task of tasks; let i = index;" class="task {{ (task.completed ? 'done' : '') }}">
         <div class="id">{{ i }}</div>
-        <div class="content" (click)="toggleDone(i)">{{ task.content }}</div>
+        <div class="content" (click)="toggleDone(i);">{{ task.content }}</div>
         <div class="date">{{ DateSelected }}</div>
         <div class="time">{{ TimeSelected }}</div>
         <button class="delete" (click)="deleteTask(i)">X</button>
     </div>
 </div>
-
-

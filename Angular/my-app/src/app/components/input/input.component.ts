@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Task } from './../../models/Task'
 
 @Component({
@@ -6,7 +6,12 @@ import { Task } from './../../models/Task'
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css']
 })
+
 export class InputComponent implements OnInit {
+
+  @Output() tasksChange = new EventEmitter<Task[]>();
+
+  @Input() task!: [];
 
   tasks:Task[] = [];
   inputTask: string = "";
@@ -14,8 +19,6 @@ export class InputComponent implements OnInit {
   TimeSelected: any;
 
   constructor() {}
-
-
   ngOnInit(): void {}
 
   addTask() {
@@ -27,6 +30,8 @@ export class InputComponent implements OnInit {
     });
 
     console.log(this.tasks);
+
+    this.tasksChange.emit(this.tasks);
 
     this.inputTask = "";
     this.DateSelected = "";

@@ -1,4 +1,4 @@
- #bodyOutput {
+ .bodyOutput {
     font-size: 1.25rem;
     width: 90%;
     margin: 0 auto;
@@ -39,3 +39,7 @@
  .task.done .content {
   text-decoration: line-through;
  }
+
+.id {
+  margin-left: .5rem;
+}

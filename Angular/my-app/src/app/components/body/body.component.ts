@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Task } from '../../models/Task';
 
 @Component({
@@ -9,8 +9,7 @@ import { Task } from '../../models/Task';
 
 export class BodyComponent implements OnInit {
 
-  tasks!:Task[];
-
+  tasks:Task[] = [];
   DateSelected: any;
   TimeSelected: any;
   inputTask: string = "";
@@ -20,7 +19,7 @@ export class BodyComponent implements OnInit {
   ngOnInit(): void {
     this.tasks = [
       {
-        content: 'first',
+        content: 'First',
         date: '24/12/2022',
         time: '08:00 AM',
         completed: false
