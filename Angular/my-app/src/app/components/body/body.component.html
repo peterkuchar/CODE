@@ -1,11 +1,11 @@
-<app-input (tasksChange)="addNewTask()"></app-input>
+<app-input (taskAdded)="onTaskAdded($event)"></app-input>
 
 <div class="bodyOutput">
     <div *ngFor="let task of tasks; let i = index;" class="task {{ (task.completed ? 'done' : '') }}">
-        <div class="id">{{ i }}</div>
+        <div class="id">{{ i+1 }}</div>
         <div class="content" (click)="toggleDone(i);">{{ task.content }}</div> <!--get value from inputTask -->
-        <div class="date">{{ task.date }}</div>     <!--get value from inputDate -->
-        <div class="time">{{ task.time }}</div>     <!--get value from inputTime -->
+        <div class="date">{{ task.date | date : 'longDate' }}</div>     <!--get value from inputDate -->
+        <div class="time">{{ task.time | date : 'shortTime' }}</div>     <!--get value from inputTime -->
         <button class="delete" (click)="deleteTask(i)">X</button>
     </div>
 </div>

@@ -1,4 +1,6 @@
-import { Component, Input, Output, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, Input, Output, OnInit, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { createAction } from '@ngrx/store';
 import { Task } from '../../models/Task';
 
 @Component({
@@ -10,43 +12,49 @@ import { Task } from '../../models/Task';
 
 export class BodyComponent implements OnInit {
 
+  @Output() taskAdded = new EventEmitter<string>();
+
   tasks:Task[] = [];
-  @Output() public inputDate: any;
-  @Output() public inputTime: any;
-  @Output() public inputTask: string = "";
+  inputDate!: Date;
+  inputTime!: Date;
+  inputTask: string = "";
 
   constructor() {
+
+    // Initialize inputDate and inputTime to the current date and time
+    this.inputDate = new Date();
+    this.inputTime = new Date();
+
+    // have some Task
     this.tasks = [
-      {
-        content: 'First',
-        date: '24/12/2022',
-        time: '08:00 AM',
-        completed: false
-      },
-      {
-        content: 'second',
-        date: '24/12/2022',
-        time: '08:00 AM',
-        completed: false
-      },
-      {
-        content: 'third',
-        date: '24/12/2022',
-        time: '08:00 AM',
-        completed: false
-      },
-      {
-        content: 'fourth',
-        date: '24/12/2022',
-        time: '08:00 AM',
-        completed: false
-      }
-    ]
+        {
+          content: 'First',
+          date: Date.now(),
+          time: Date.now(),
+          completed: true
+        },
+        {
+          content: 'second',
+          date: Date.now(),
+          time: Date.now(),
+          completed: false
+        },
+        {
+          content: 'third',
+          date: Date.now(),
+          time: Date.now(),
+          completed: false
+        },
+        {
+          content: 'fourth',
+          date: Date.now(),
+          time: Date.now(),
+          completed: false
+        }
+    ];
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   toggleDone(id: number) {
     this.tasks.map((v, i) => {
@@ -60,6 +68,7 @@ export class BodyComponent implements OnInit {
   }
 
   addNewTask() {
+
     this.tasks.push({
       content: this.inputTask,
       date: this.inputDate,
@@ -67,10 +76,13 @@ export class BodyComponent implements OnInit {
       completed: false
     });
 
-    console.log(this.tasks);
+    console.log(this.tasks)
 
     this.inputTask = "";  // reset input text
-    this.inputDate = ""; // reset input date
-    this.inputTime = ""; // reset input time
+  }
+
+  onTaskAdded(task: string) {
+    this.inputTask = task;
+    this.addNewTask();
   }
 }

@@ -10,12 +10,12 @@ import { Task } from './../../models/Task'
 
 export class InputComponent implements OnInit {
 
-  @Output() tasksChange = new EventEmitter();
+  @Output() taskAdded = new EventEmitter<string>();
 
   tasks:Task[] = [];
-  @Input() public inputTask: string = "";
-  @Input() public inputDate: any;
-  @Input() public inputTime: any;
+  @Input() inputTask: string = "";
+  @Input() inputDate!: Date;
+  @Input() inputTime!: Date;
 
   constructor() {}
   ngOnInit(): void {}
@@ -28,10 +28,14 @@ export class InputComponent implements OnInit {
       completed: false
     });
 
-    this.tasksChange.emit(this.tasks);
+    this.taskAdded.emit(this.inputTask);
 
     this.inputTask = ""; //reset input text
-    this.inputDate = ""; //reset input date
-    this.inputTime = ""; // reset input time
+
+  }
+  onDateTimeChanged(date: Date, time: Date) {
+    // Update inputDate and inputTime with the selected date and time
+    this.inputDate = date;
+    this.inputTime = time;
   }
 }
